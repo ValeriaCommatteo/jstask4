@@ -73,37 +73,21 @@
   </header>
   <div class="flex-wrapper">
     <main>
-      <form action="" class="container text-center">
-        <fieldset>
-          <input checked type="checkbox" name="Category" value="Category"><label>Category</label>
-          <input type="checkbox" name="Category2" value="Category2"><label>Category</label>
-          <input type="checkbox" name="Category3" value="Category3"><label>Category</label>
-          <input type="checkbox" name="Category4" value="Category4"><label>Category</label>
-          <input type="checkbox" name="Category" value="Category"><label>Category</label>
-          <input type="checkbox" name="Category" value="Category"><label>Category</label>
-          <input type="text" name="buscar" id="buscar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-search"
-            style="margin-left: 15;" viewBox="0 0 16 16">
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-          </svg>
-        </fieldset>
-      </form>
-      <section id="pastE" style="margin-top: 70px;">
-        <!-- <div class="container text-center" style="width: 950px;">
-    <div class="row row-cols-3">
-        <div class="col">
-            <div class="tarjeta1">
-                <img src="./assets/Cinema.jpg" alt="muestra" id="foto">
-                <div class="card-title">Título</div>
-                <div class="card-text">Texto descriptivo</div>
-                <div class="card-foot">Precio
-                    <a href="#" class="btn ms-5">Ver más</a>
-                </div>
-            </div>
-        </div> -->
+      <div class="formulario flex-column-reverse  flex-lg-row">
+          <nav class="navbar navbar-light bg-light">
+              <div class="container-fluid">
+                  <form class="d-flex">
+                      <input id="label-search" class="form-control me-2" type="text" placeholder="Search" aria-label="Search" style="margin-left: 110px; width: 1000px;">
+                      <button class="btn btn-outline-dark" type="submit">Search</button>
+                  </form>
+                  <form id="checkBox" class="d-flex flex-lg-row container" style="margin-left: 160px;"></form>
+              </div>
+          </nav>
+      </div>
+      <section style="margin: 70px;">
+          <div class="row row-cols-1 row-cols-md-3 g-4" id="cards"></div>
       </section>
-    </main>
+  </main>
   </div>
         <!-- Footer -->
         <footer class="text-center text-lg-start text-black" fill="black" id="cohort">
@@ -142,6 +126,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="./script/data.js"></script>
 <script src="./script/pastE.js"></script>
+<script src="./script/filter.js"></script>
 </body>
 
 </html>

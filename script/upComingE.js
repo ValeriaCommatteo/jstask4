@@ -1,26 +1,51 @@
-const upcomingE = document.getElementById("upcomingE");
+const upcomingE = document.getElementById("cards");
 
-const DateBase = new Date(data.currentDate); 
+const DateBase = data.currentDate; 
+
+let events = []
+
+function traerDatos() {
+//  fetch("./script/data.js")
+ fetch("https://mindhub-xj03.onrender.com/api/amazing")
+ .then(response => response.json())
+ .then(datosApi => {
+    console.log(datosApi)
+    events = datosApi.events
+    console.log(events)
+    crearTarjetas(events,contenedor)
+ })
+
+.catch(error => console.log(error.message))
+
+}
+
+traerDatos()
+
+function crearTarjetas(lista) {
 
 let tarjetasCargadas = "";
 
-let tarjetasUpcomingE = data.events.filter((evento) => new Date(evento.date) >= DateBase);
+      lista.forEach((evento) => {
+      if(evento.date>DateBase){
 
-    tarjetasUpcomingE.forEach((evento) => (tarjetasCargadas += 
-    
-    `
-      <div class="card event__card p-2 m-4 border-0 text-center">
-      <div class="row no-gutters">
-        <div class="col-sm-4" style="margin-left: 90px">
-          <img class="card-img rounded" src=" ${evento.image} "width="100" height="200">
-        </div>
-        <div class="col-sm-6"  style="padding-top: 50px">
-          <div class="card-body">
-            <h5 class="card-title">${evento.name}</h5>
-            <p class="card-text">${evento.description}</p>
-          </div>
-        </div>
-      </div>
-    </div> `))
+      tarjetasCargadas +=
+        `<div class="card event__card border-0 text-center">
+            <div class="col">
+              <div class="card h-100" style="margin-left: 90px">
+                <img class="card-img rounded" src=" ${evento.image} "width="100" height="200">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Name: ${evento.name}</h5>
+                    <p class="card-text">Description: ${evento.description}</p>
+                   <input type="button"  onclick="details('${evento._id}')" value="Ver más" class="btn mt-auto">
+                </div>
+               </div>
+            </div>
+        </div>  `  
+      }}) 
 
-upcomingE.innerHTML = tarjetasCargadas;
+      upcomingE.innerHTML = tarjetasCargadas;
+}
+
+function details(id) {
+  window.location.href = `./details.html?id=${id}`;
+}

@@ -1,5 +1,10 @@
- `
-<div class="card border-0">
+let queryString = location.search
+let params = new URLSearchParams(queryString)
+let id = params.get('id')
+let evento = data.events.find(info => info._id == id); 
+let detail = document.getElementById('detail');
+
+detail.innerHTML = `<div class="card border-0 align-items-center">
     <div class="col" style="height: 300px; width: 600px;">
         <div class="card" style="margin-left: 90px">
             <img class="card-img rounded" src=" ${evento.image} "width="100" height="250">
@@ -11,9 +16,7 @@
                     <p class="card-text">${evento.category}</p>
                     <p class="card-text">${evento.capacity}</p>
                     <p class="card-text">${evento.assistance}</p>
-            </div>
-            <div class="d-flex flex-row justify-content-end">
-                    <a href="./index.html" class="btn btn-primary">Home</a>
+                    <a href="./index.html" class="btn mt-auto">Home</a>
             </div>               
         </div>
     </div>

@@ -1,4 +1,4 @@
-const contenedor = document.getElementById('contenedor')
+const tarjetasHome = document.getElementById('cards')
 
 let events = []
 
@@ -19,11 +19,11 @@ function traerDatos() {
 
 traerDatos()
 
-// ArrayDatos = events (array de eventos), tarjetasHome = contenedor
-function crearTarjetas(arrayDatos, tarjetasHome){
-    let tarjetas = ''
-    arrayDatos.forEach (evento => {
-      tarjetas +=`
+function crearTarjetas(lista){
+  let tarjetas = "";
+
+  lista.forEach(evento => {
+    tarjetas +=`
       <div class="card event__card border-0 text-center">
         <div class="col">
             <div class="card h-100" style="margin-left: 90px">
