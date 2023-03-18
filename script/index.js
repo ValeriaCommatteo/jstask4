@@ -1,29 +1,25 @@
 const tarjetasHome = document.getElementById('cards')
 
-let events = []
+let eventos = []
 
 function traerDatos() {
-//  fetch("./script/data.js")
- fetch("https://mindhub-xj03.onrender.com/api/amazing")
- .then(response => response.json())
- .then(datosApi => {
-    console.log(datosApi)
-    events = datosApi.events
-    console.log(events)
-    crearTarjetas(events,contenedor)
- })
-
-.catch(error => console.log(error.message))
-
+    //  fetch("./script/data.js")
+    fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(datosApi => {
+            eventos = datosApi.events
+            crearTarjetas(eventos, tarjetasHome)
+        })
+        .catch(error => console.log(error.message))
 }
 
 traerDatos()
 
-function crearTarjetas(lista){
-  let tarjetas = "";
+function crearTarjetas(lista) {
+    let tarjetas = "";
 
-  lista.forEach(evento => {
-    tarjetas +=`
+    lista.forEach(evento => {
+        tarjetas += `
       <div class="card event__card border-0 text-center">
         <div class="col">
             <div class="card h-100" style="margin-left: 90px">
@@ -39,10 +35,10 @@ function crearTarjetas(lista){
           </div>
        </div>
     </div> `
-  })
-  tarjetasHome.innerHTML = tarjetas;
+    })
+    tarjetasHome.innerHTML = tarjetas;
 }
 
 function details(id) {
-  window.location.href = `./details.html?id=${id}`;
+    window.location.href = `./details.html?id=${id}`;
 }

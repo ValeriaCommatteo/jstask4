@@ -1,35 +1,32 @@
 const upcomingE = document.getElementById("cards");
 
-const DateBase = data.currentDate; 
-
-let events = []
+let DateBase = [];
 
 function traerDatos() {
-//  fetch("./script/data.js")
- fetch("https://mindhub-xj03.onrender.com/api/amazing")
- .then(response => response.json())
- .then(datosApi => {
-    console.log(datosApi)
-    events = datosApi.events
-    console.log(events)
-    crearTarjetas(events,contenedor)
- })
-
-.catch(error => console.log(error.message))
-
+    //  fetch("./script/data.js")
+    fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(datosApi => {
+            console.log('entra fetch')
+            DateBase = datosApi.currentDate
+            crearTarjetas(datosEventos, upcomingE)
+            displayCheckBox()
+            addListenerCheck()
+        })
+        .catch(error => console.log('error.message : ' + error.message)
+        )
 }
 
 traerDatos()
 
 function crearTarjetas(lista) {
 
-let tarjetasCargadas = "";
+    let tarjetasCargadas = "";
+    lista.forEach((evento) => {
+        if (evento.date > DateBase) {
 
-      lista.forEach((evento) => {
-      if(evento.date>DateBase){
-
-      tarjetasCargadas +=
-        `<div class="card event__card border-0 text-center">
+            tarjetasCargadas +=
+                `<div class="card event__card border-0 text-center">
             <div class="col">
               <div class="card h-100" style="margin-left: 90px">
                 <img class="card-img rounded" src=" ${evento.image} "width="100" height="200">
@@ -40,12 +37,13 @@ let tarjetasCargadas = "";
                 </div>
                </div>
             </div>
-        </div>  `  
-      }}) 
+        </div>  `
+        }
+    })
 
-      upcomingE.innerHTML = tarjetasCargadas;
+    upcomingE.innerHTML = tarjetasCargadas;
 }
 
 function details(id) {
-  window.location.href = `./details.html?id=${id}`;
+    window.location.href = `./details.html?id=${id}`;
 }
