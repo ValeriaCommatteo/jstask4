@@ -1,5 +1,3 @@
-// const filter = document.getElementById("cards");
-
 let datosEventos = []
 
 function traerDatos() {

@@ -70,113 +70,49 @@
     <div class="flex-wrapper">
         <main>
             <section style="margin-top: 10px; margin-left: 5px; margin-right: 5px;">
-                <div class="tbl-header">
-                    <table cellpadding="0" cellspacing="0" border="0">
+                <h1 class="bg-dark bg-gradient">Events statistics</h1>
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Events with the percentage of attendance</th>
+                        <th scope="col">Events with the lowest percentage of attendance</th>
+                        <th scope="col">Event with larger capacity</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableStats">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h1 class="bg-dark bg-gradient">Upcoming events statistics by category</h1>
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                          <th scope="col">Categories</th>
+                          <th scope="col">Revenues</th>
+                          <th scope="col">Porcentage of attendance</th>
+                        </tr>
+                      </thead>
+                      <tbody id="upcoming">
+        
+                      </tbody>
+                    </table>
+                    <h1 class="bg-dark bg-gradient">Past Events statistics by category</h1>
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="bg-dark bg-gradient">Events statistics</th>
-                            </tr>
+                            <th scope="col">Categories</th>
+                            <th scope="col">Revenues</th>
+                            <th scope="col">Porcentage of attendance</th>
+                          </tr>
                         </thead>
-                    </table>
-                </div>
-                <div class="tbl-content">
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td>Events with the highest percentage of attendance</td>
-                                <td>Events with the lowest percentage of attendance</td>
-                                <td>Event with lage capacity</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                        <tbody id="past">
+        
                         </tbody>
-                    </table>
-                </div>
-                <div class="tbl-header">
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <thead>
-                            <tr>
-                                <th class="bg-dark bg-gradient">Upcoming events statistics by category</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class="tbl-content">
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td>Categories</td>
-                                <td>Revenues</td>
-                                <td>Percentage of attendance</td>
-                            </tr>
-                        </tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tbl-header">
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <thead>
-                            <tr>
-                                <th class="bg-dark bg-gradient">Past Events statistic by category</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class="tbl-content">
-                    <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td>Categories</td>
-                                <td>Revenues</td>
-                                <td>Percentege of attendance</td>
-                            </tr>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                      </table>
             </section>
         </main>
     </div>
@@ -217,8 +153,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-        <script src="../script/main.js"></script>
-        <script src="../script/stats.js"></script>
+        <script src="./script/stats.js"></script>
 </body>
 
 </html>
