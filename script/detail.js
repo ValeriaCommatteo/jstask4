@@ -1,10 +1,32 @@
-let queryString = location.search
-let params = new URLSearchParams(queryString)
-let id = params.get('id')
-let evento = data.events.find(info => info._id == id); 
+let data = []
+let evento = []
 let detail = document.getElementById('detail');
 
-detail.innerHTML = `<div class="card border-0 align-items-center">
+function traerDatos() {
+    //  fetch("./script/data.js")
+    fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(data => {
+            datosApi = data
+            configuraBusqueda(datosApi)
+        })
+        .catch(error => console.log(error.message))
+}
+
+traerDatos()
+
+function configuraBusqueda(datosApi) {
+    let queryString = location.search
+    let params = new URLSearchParams(queryString)
+    let id = params.get('id')
+    evento = datosApi.events.find((info) => {
+        return info._id == id
+    }); 
+    crearTarjeta()
+}
+
+function crearTarjeta() {
+    detail.innerHTML = `<div class="card border-0 align-items-center">
     <div class="col" style="height: 300px; width: 600px;">
         <div class="card" style="margin-left: 90px">
             <img class="card-img rounded" src=" ${evento.image} "width="100" height="250">
@@ -21,3 +43,4 @@ detail.innerHTML = `<div class="card border-0 align-items-center">
         </div>
     </div>
 </div>`
+}
